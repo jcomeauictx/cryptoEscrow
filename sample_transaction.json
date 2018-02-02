@@ -1,0 +1,1 @@
+{"intent": "sale", "redirect_urls": {"return_url": "https://example.com/your_redirect_url.html", "cancel_url": "https://example.com/your_cancel_url.html"}, "payer": {"payment_method": "paypal"}, "transactions": [{"amount": {"total": "7.47", "currency": "USD"}}]}
