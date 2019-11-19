@@ -50,7 +50,10 @@ def paypal_ipn():
         sendmail('successful PayPal transaction', postdata)
     elif response == 'INVALID':
         logging.warning('invalid transaction')
-        sendmail('failed PayPal transaction', postdata)
+        if dict(parameters).get('txn_type') == 'invoice_payment':
+            sendmail('invoice payment cannot be verified', postdata)
+        else:
+            sendmail('failed PayPal transaction', postdata)
     else:
         logging.error('unexpected response: %s', response)
         sendmail('unknown PayPal transaction', postdata)
